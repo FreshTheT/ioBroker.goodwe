@@ -85,6 +85,8 @@ class GoodWeRunningData {
 	Pv2 = new DcParameters();
 	Pv3 = new DcParameters();
 	Pv4 = new DcParameters();
+	Pv5 = new DcParameters();
+	Pv6 = new DcParameters();
 	GridL1 = new AcPhase();
 	GridL2 = new AcPhase();
 	GridL3 = new AcPhase();
@@ -344,6 +346,14 @@ class GoodWeUdp {
 					this.#runningData.Pv4.Voltage = this.#GetUintFromByteArray(rcvbuf, 35, 2) / 10;
 					this.#runningData.Pv4.Current = this.#GetUintFromByteArray(rcvbuf, 37, 2) / 10;
 					this.#runningData.Pv4.Power = this.#GetUintFromByteArray(rcvbuf, 39, 4);
+					this.#runningData.Pv5.Voltage = this.#GetUintFromByteArray(rcvbuf, 43, 2) / 10;
+					this.#runningData.Pv5.Current = this.#GetUintFromByteArray(rcvbuf, 45, 2) / 10;
+					this.#runningData.Pv5.Power = this.#GetUintFromByteArray(rcvbuf, 47, 4);
+					this.#runningData.Pv6.Voltage = this.#GetUintFromByteArray(rcvbuf, 51, 2) / 10;
+					this.#runningData.Pv6.Current = this.#GetUintFromByteArray(rcvbuf, 53, 2) / 10;
+					this.#runningData.Pv6.Power = this.#GetUintFromByteArray(rcvbuf, 55, 4);
+					this.#runningData.Pv6.Mode = rcvbuf[41];
+					this.#runningData.Pv5.Mode = rcvbuf[42];					
 					this.#runningData.Pv4.Mode = rcvbuf[43];
 					this.#runningData.Pv3.Mode = rcvbuf[44];
 					this.#runningData.Pv2.Mode = rcvbuf[45];
@@ -421,7 +431,7 @@ class GoodWeUdp {
 					this.#runningData.DerateFrozenPower = this.#GetUintFromByteArray(rcvbuf, 237, 4);
 					this.#runningData.DiagStatusH = this.#GetUintFromByteArray(rcvbuf, 241, 4);
 					this.#runningData.DiagStatusL = this.#GetUintFromByteArray(rcvbuf, 245, 4);
-					this.#runningData.TotalPowerPv = this.#runningData.Pv1.Power + this.#runningData.Pv2.Power + this.#runningData.Pv3.Power + this.#runningData.Pv4.Power;
+					this.#runningData.TotalPowerPv = this.#runningData.Pv1.Power + this.#runningData.Pv2.Power + this.#runningData.Pv3.Power + this.#runningData.Pv4.Power + this.#runningData.Pv5.Power + this.#runningData.Pv6.Power;
 
 					this.#status = GoodWeUdp.ConStatus.Online;
 				} else {
