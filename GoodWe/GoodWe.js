@@ -334,8 +334,7 @@ class GoodWeUdp {
 		try{
 			this.#client.on("message", (rcvbuf) => {
 				if (this.#CheckRecRegisterData(rcvbuf, sendbuf[1], sendbuf[5])) {
-					this.log.info(`heeeeeeeeeeeeeereeeeeeeeeeeeee`);
-					this.log.info(`rcvbuf data: ${rcvbuf}`);
+					console.log(`rcvbuf data: ${rcvbuf}`);
 					this.#runningData.Pv1.Voltage = this.#GetUintFromByteArray(rcvbuf, 11, 2) / 10;
 					this.#runningData.Pv1.Current = this.#GetUintFromByteArray(rcvbuf, 13, 2) / 10;
 					this.#runningData.Pv1.Power = this.#GetUintFromByteArray(rcvbuf, 15, 4);
