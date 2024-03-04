@@ -279,18 +279,18 @@ class GoodWeUdp {
 		try {
 			this.#client.on("message", (rcvbuf) => {
 				if (this.#CheckRecRegisterData(rcvbuf, sendbuf[1], sendbuf[5])) {
-					this.#deviceInfo.ModbusProtocolVersion = this.#GetUintFromByteArray(rcvbuf, 5, 2);
-					this.#deviceInfo.RatedPower = this.#GetUintFromByteArray(rcvbuf, 7, 2);
-					this.#deviceInfo.AcOutputType = this.#GetUintFromByteArray(rcvbuf, 9, 2);
-					this.#deviceInfo.SerialNumber = this.#GetStringFromByteArray(rcvbuf, 11, 16);
-					this.#deviceInfo.DeviceType = this.#GetStringFromByteArray(rcvbuf, 27, 10);
-					this.#deviceInfo.DSP1_SoftwareVersion = this.#GetUintFromByteArray(rcvbuf, 37, 2);
-					this.#deviceInfo.DSP2_SoftwareVersion = this.#GetUintFromByteArray(rcvbuf, 39, 2);
-					this.#deviceInfo.DSP_SVN_Version = this.#GetUintFromByteArray(rcvbuf, 41, 2);
-					this.#deviceInfo.ARM_SoftwareVersion = this.#GetUintFromByteArray(rcvbuf, 43, 2);
-					this.#deviceInfo.ARM_SVN_Version = this.#GetUintFromByteArray(rcvbuf, 45, 2);
-					this.#deviceInfo.DSP_IntFirmwareVersion = this.#GetStringFromByteArray(rcvbuf, 47, 12);
-					this.#deviceInfo.ARM_IntFirmwareVersion = this.#GetStringFromByteArray(rcvbuf, 59, 12);
+					// this.#deviceInfo.ModbusProtocolVersion = this.#GetUintFromByteArray(rcvbuf, 5, 2);
+					// this.#deviceInfo.RatedPower = this.#GetUintFromByteArray(rcvbuf, 7, 2);
+					// this.#deviceInfo.AcOutputType = this.#GetUintFromByteArray(rcvbuf, 9, 2);
+					// this.#deviceInfo.SerialNumber = this.#GetStringFromByteArray(rcvbuf, 11, 16);
+					// this.#deviceInfo.DeviceType = this.#GetStringFromByteArray(rcvbuf, 27, 10);
+					// this.#deviceInfo.DSP1_SoftwareVersion = this.#GetUintFromByteArray(rcvbuf, 37, 2);
+					// this.#deviceInfo.DSP2_SoftwareVersion = this.#GetUintFromByteArray(rcvbuf, 39, 2);
+					// this.#deviceInfo.DSP_SVN_Version = this.#GetUintFromByteArray(rcvbuf, 41, 2);
+					// this.#deviceInfo.ARM_SoftwareVersion = this.#GetUintFromByteArray(rcvbuf, 43, 2);
+					// this.#deviceInfo.ARM_SVN_Version = this.#GetUintFromByteArray(rcvbuf, 45, 2);
+					// this.#deviceInfo.DSP_IntFirmwareVersion = this.#GetStringFromByteArray(rcvbuf, 47, 12);
+					// this.#deviceInfo.ARM_IntFirmwareVersion = this.#GetStringFromByteArray(rcvbuf, 59, 12);
 
 					this.#status = GoodWeUdp.ConStatus.Online;
 				} else {
