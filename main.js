@@ -119,6 +119,8 @@ class Goodwe extends utils.Adapter {
 		this.CreateObjectsDcParameters("RunningData", "PV2");
 		this.CreateObjectsDcParameters("RunningData", "PV3");
 		this.CreateObjectsDcParameters("RunningData", "PV4");
+		this.CreateObjectsDcParameters("RunningData", "PV5");
+		this.CreateObjectsDcParameters("RunningData", "PV6");
 		// this.CreateObjectsAcPhase("RunningData", "GridL1");
 		// this.CreateObjectsAcPhase("RunningData", "GridL2");
 		// this.CreateObjectsAcPhase("RunningData", "GridL3");
@@ -489,6 +491,12 @@ class Goodwe extends utils.Adapter {
 		this.setStateAsync("RunningData.PV4.Current", this.inverter.RunningData.Pv4.Current, true);
 		this.setStateAsync("RunningData.PV4.Power", this.inverter.RunningData.Pv4.Power, true);
 		this.setStateAsync("RunningData.PV4.Mode", this.inverter.RunningData.Pv4.Mode, true);
+		this.setStateAsync("RunningData.PV5.Current", this.inverter.RunningData.Pv5.Current, true);
+		this.setStateAsync("RunningData.PV5.Power", this.inverter.RunningData.Pv5.Power, true);
+		this.setStateAsync("RunningData.PV5.Mode", this.inverter.RunningData.Pv5.Mode, true);
+		this.setStateAsync("RunningData.PV6.Current", this.inverter.RunningData.Pv6.Current, true);
+		this.setStateAsync("RunningData.PV6.Power", this.inverter.RunningData.Pv6.Power, true);
+		this.setStateAsync("RunningData.PV6.Mode", this.inverter.RunningData.Pv6.Mode, true);
 		// this.setStateAsync("RunningData.PV1.Voltage", this.inverter.RunningData.Pv1.Voltage, true);
 		// this.setStateAsync("RunningData.PV1.Current", this.inverter.RunningData.Pv1.Current, true);
 		// this.setStateAsync("RunningData.PV1.Power", this.inverter.RunningData.Pv1.Power, true);

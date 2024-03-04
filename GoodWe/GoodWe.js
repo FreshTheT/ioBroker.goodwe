@@ -229,13 +229,13 @@ class GoodWeUdp {
 		try {
 			this.#client.on("message", (rcvbuf) => {
 				if (this.#CheckRecPacket(rcvbuf, sendbuf[4], sendbuf[5])) {
-					// this.#idInfo.FirmwareVersion = this.#GetStringFromByteArray(rcvbuf, 7, 5);
-					// this.#idInfo.ModelName = this.#GetStringFromByteArray(rcvbuf, 12, 10);
-					// this.#idInfo.Na = rcvbuf.slice(22, 37);
-					// this.#idInfo.SerialNumber = this.#GetStringFromByteArray(rcvbuf, 38, 16);
-					// this.#idInfo.NomVpv = this.#GetUintFromByteArray(rcvbuf, 54, 4) / 10;
-					// this.#idInfo.InternalVersion = this.#GetStringFromByteArray(rcvbuf, 58, 12);
-					// this.#idInfo.SafetyCountryCode = rcvbuf[70];
+					this.#idInfo.FirmwareVersion = this.#GetStringFromByteArray(rcvbuf, 7, 5);
+					this.#idInfo.ModelName = this.#GetStringFromByteArray(rcvbuf, 12, 10);
+					this.#idInfo.Na = rcvbuf.slice(22, 37);
+					this.#idInfo.SerialNumber = this.#GetStringFromByteArray(rcvbuf, 38, 16);
+					this.#idInfo.NomVpv = this.#GetUintFromByteArray(rcvbuf, 54, 4) / 10;
+					this.#idInfo.InternalVersion = this.#GetStringFromByteArray(rcvbuf, 58, 12);
+					this.#idInfo.SafetyCountryCode = rcvbuf[70];
 
 					this.#status = GoodWeUdp.ConStatus.Online;
 				} else {
@@ -334,6 +334,8 @@ class GoodWeUdp {
 		try{
 			this.#client.on("message", (rcvbuf) => {
 				if (this.#CheckRecRegisterData(rcvbuf, sendbuf[1], sendbuf[5])) {
+					console.log("heeeeeeeeeeeeeereeeeeeeeeeeeee");
+					console.log("rcvbuf data: ", rcvbuf);
 					this.#runningData.Pv1.Voltage = this.#GetUintFromByteArray(rcvbuf, 11, 2) / 10;
 					this.#runningData.Pv1.Current = this.#GetUintFromByteArray(rcvbuf, 13, 2) / 10;
 					this.#runningData.Pv1.Power = this.#GetUintFromByteArray(rcvbuf, 15, 4);
@@ -346,14 +348,14 @@ class GoodWeUdp {
 					this.#runningData.Pv4.Voltage = this.#GetUintFromByteArray(rcvbuf, 35, 2) / 10;
 					this.#runningData.Pv4.Current = this.#GetUintFromByteArray(rcvbuf, 37, 2) / 10;
 					this.#runningData.Pv4.Power = this.#GetUintFromByteArray(rcvbuf, 39, 4);
-					// this.#runningData.Pv5.Voltage = this.#GetUintFromByteArray(rcvbuf, 43, 2) / 10;
-					// this.#runningData.Pv5.Current = this.#GetUintFromByteArray(rcvbuf, 45, 2) / 10;
-					// this.#runningData.Pv5.Power = this.#GetUintFromByteArray(rcvbuf, 47, 4);
-					// this.#runningData.Pv6.Voltage = this.#GetUintFromByteArray(rcvbuf, 51, 2) / 10;
-					// this.#runningData.Pv6.Current = this.#GetUintFromByteArray(rcvbuf, 53, 2) / 10;
-					// this.#runningData.Pv6.Power = this.#GetUintFromByteArray(rcvbuf, 55, 4);
-					// this.#runningData.Pv6.Mode = rcvbuf[41];
-					// this.#runningData.Pv5.Mode = rcvbuf[42];					
+					this.#runningData.Pv5.Voltage = this.#GetUintFromByteArray(rcvbuf, 43, 2) / 10;
+					this.#runningData.Pv5.Current = this.#GetUintFromByteArray(rcvbuf, 45, 2) / 10;
+					this.#runningData.Pv5.Power = this.#GetUintFromByteArray(rcvbuf, 47, 4);
+					this.#runningData.Pv6.Voltage = this.#GetUintFromByteArray(rcvbuf, 51, 2) / 10;
+					this.#runningData.Pv6.Current = this.#GetUintFromByteArray(rcvbuf, 53, 2) / 10;
+					this.#runningData.Pv6.Power = this.#GetUintFromByteArray(rcvbuf, 55, 4);
+					this.#runningData.Pv6.Mode = rcvbuf[41];
+					this.#runningData.Pv5.Mode = rcvbuf[42];					
 					this.#runningData.Pv4.Mode = rcvbuf[43];
 					this.#runningData.Pv3.Mode = rcvbuf[44];
 					this.#runningData.Pv2.Mode = rcvbuf[45];
