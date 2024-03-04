@@ -229,13 +229,13 @@ class GoodWeUdp {
 		try {
 			this.#client.on("message", (rcvbuf) => {
 				if (this.#CheckRecPacket(rcvbuf, sendbuf[4], sendbuf[5])) {
-					this.#idInfo.FirmwareVersion = this.#GetStringFromByteArray(rcvbuf, 7, 5);
-					this.#idInfo.ModelName = this.#GetStringFromByteArray(rcvbuf, 12, 10);
-					this.#idInfo.Na = rcvbuf.slice(22, 37);
-					this.#idInfo.SerialNumber = this.#GetStringFromByteArray(rcvbuf, 38, 16);
-					this.#idInfo.NomVpv = this.#GetUintFromByteArray(rcvbuf, 54, 4) / 10;
-					this.#idInfo.InternalVersion = this.#GetStringFromByteArray(rcvbuf, 58, 12);
-					this.#idInfo.SafetyCountryCode = rcvbuf[70];
+					// this.#idInfo.FirmwareVersion = this.#GetStringFromByteArray(rcvbuf, 7, 5);
+					// this.#idInfo.ModelName = this.#GetStringFromByteArray(rcvbuf, 12, 10);
+					// this.#idInfo.Na = rcvbuf.slice(22, 37);
+					// this.#idInfo.SerialNumber = this.#GetStringFromByteArray(rcvbuf, 38, 16);
+					// this.#idInfo.NomVpv = this.#GetUintFromByteArray(rcvbuf, 54, 4) / 10;
+					// this.#idInfo.InternalVersion = this.#GetStringFromByteArray(rcvbuf, 58, 12);
+					// this.#idInfo.SafetyCountryCode = rcvbuf[70];
 
 					this.#status = GoodWeUdp.ConStatus.Online;
 				} else {
