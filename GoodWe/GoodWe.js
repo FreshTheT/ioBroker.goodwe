@@ -476,23 +476,23 @@ class GoodWeUdp {
 		try {
 			this.#client.on("message", (rcvbuf) => {
 				if (this.#CheckRecRegisterData(rcvbuf, sendbuf[1], sendbuf[5])) {
-					this.#extComData.Commode = this.#GetUintFromByteArray(rcvbuf, 5, 2);
-					this.#extComData.Rssi = this.#GetUintFromByteArray(rcvbuf, 7, 2);
-					this.#extComData.ManufacturerCode = this.#GetUintFromByteArray(rcvbuf, 9, 2);
-					this.#extComData.MeterConnectStatus = this.#GetUintFromByteArray(rcvbuf, 11, 2);
-					this.#extComData.MeterCommunicateStatus = this.#GetUintFromByteArray(rcvbuf, 13, 2);
-					this.#extComData.L1.ActivePower = this.#GetIntFromByteArray(rcvbuf, 15, 2);
-					this.#extComData.L2.ActivePower = this.#GetIntFromByteArray(rcvbuf, 17, 2);
-					this.#extComData.L3.ActivePower = this.#GetIntFromByteArray(rcvbuf, 19, 2);
-					this.#extComData.TotalActivePower = this.#GetIntFromByteArray(rcvbuf, 21, 2);
-					this.#extComData.TotalReactivePower = this.#GetUintFromByteArray(rcvbuf, 23, 2);
-					this.#extComData.L1.PowerFactor = this.#GetUintFromByteArray(rcvbuf, 25, 2) / 100;
-					this.#extComData.L2.PowerFactor = this.#GetUintFromByteArray(rcvbuf, 27, 2) / 100;
-					this.#extComData.L3.PowerFactor = this.#GetUintFromByteArray(rcvbuf, 29, 2) / 100;
-					this.#extComData.PowerFactor = this.#GetUintFromByteArray(rcvbuf, 31, 2) / 100;
-					this.#extComData.Frequency = this.#GetUintFromByteArray(rcvbuf, 33, 2) / 100;
-					this.#extComData.EnergyTotalSell = this.#GetFloatFromByteArray(rcvbuf, 35, 4) / 10;
-					this.#extComData.EnergyTotalBuy = this.#GetFloatFromByteArray(rcvbuf, 39, 4) / 10;
+					// this.#extComData.Commode = this.#GetUintFromByteArray(rcvbuf, 5, 2);
+					// this.#extComData.Rssi = this.#GetUintFromByteArray(rcvbuf, 7, 2);
+					// this.#extComData.ManufacturerCode = this.#GetUintFromByteArray(rcvbuf, 9, 2);
+					// this.#extComData.MeterConnectStatus = this.#GetUintFromByteArray(rcvbuf, 11, 2);
+					// this.#extComData.MeterCommunicateStatus = this.#GetUintFromByteArray(rcvbuf, 13, 2);
+					// this.#extComData.L1.ActivePower = this.#GetIntFromByteArray(rcvbuf, 15, 2);
+					// this.#extComData.L2.ActivePower = this.#GetIntFromByteArray(rcvbuf, 17, 2);
+					// this.#extComData.L3.ActivePower = this.#GetIntFromByteArray(rcvbuf, 19, 2);
+					// this.#extComData.TotalActivePower = this.#GetIntFromByteArray(rcvbuf, 21, 2);
+					// this.#extComData.TotalReactivePower = this.#GetUintFromByteArray(rcvbuf, 23, 2);
+					// this.#extComData.L1.PowerFactor = this.#GetUintFromByteArray(rcvbuf, 25, 2) / 100;
+					// this.#extComData.L2.PowerFactor = this.#GetUintFromByteArray(rcvbuf, 27, 2) / 100;
+					// this.#extComData.L3.PowerFactor = this.#GetUintFromByteArray(rcvbuf, 29, 2) / 100;
+					// this.#extComData.PowerFactor = this.#GetUintFromByteArray(rcvbuf, 31, 2) / 100;
+					// this.#extComData.Frequency = this.#GetUintFromByteArray(rcvbuf, 33, 2) / 100;
+					// this.#extComData.EnergyTotalSell = this.#GetFloatFromByteArray(rcvbuf, 35, 4) / 10;
+					// this.#extComData.EnergyTotalBuy = this.#GetFloatFromByteArray(rcvbuf, 39, 4) / 10;
 
 					this.#status = GoodWeUdp.ConStatus.Online;
 				} else {
@@ -537,14 +537,14 @@ class GoodWeUdp {
 		try {
 			this.#client.on("message", (rcvbuf) => {
 				if (this.#CheckRecRegisterData(rcvbuf, sendbuf[1], sendbuf[5])) {
-					this.#bmsInfo.Status = this.#GetUintFromByteArray(rcvbuf, 5, 2);
-					this.#bmsInfo.PackTemperature = this.#GetUintFromByteArray(rcvbuf, 7, 2) / 10;
-					this.#bmsInfo.CurrentMaxCharge = this.#GetUintFromByteArray(rcvbuf, 9, 2);
-					this.#bmsInfo.CurrentMaxDischarge = this.#GetUintFromByteArray(rcvbuf, 11, 2);
-					this.#bmsInfo.ErrorCode = this.#GetUintFromByteArray(rcvbuf, 13, 2);
-					this.#bmsInfo.SOC = this.#GetUintFromByteArray(rcvbuf, 15, 2);
-					this.#bmsInfo.SOH = this.#GetUintFromByteArray(rcvbuf, 17, 2);
-					this.#bmsInfo.BatteryStrings = this.#GetUintFromByteArray(rcvbuf, 19, 2);
+					// this.#bmsInfo.Status = this.#GetUintFromByteArray(rcvbuf, 5, 2);
+					// this.#bmsInfo.PackTemperature = this.#GetUintFromByteArray(rcvbuf, 7, 2) / 10;
+					// this.#bmsInfo.CurrentMaxCharge = this.#GetUintFromByteArray(rcvbuf, 9, 2);
+					// this.#bmsInfo.CurrentMaxDischarge = this.#GetUintFromByteArray(rcvbuf, 11, 2);
+					// this.#bmsInfo.ErrorCode = this.#GetUintFromByteArray(rcvbuf, 13, 2);
+					// this.#bmsInfo.SOC = this.#GetUintFromByteArray(rcvbuf, 15, 2);
+					// this.#bmsInfo.SOH = this.#GetUintFromByteArray(rcvbuf, 17, 2);
+					// this.#bmsInfo.BatteryStrings = this.#GetUintFromByteArray(rcvbuf, 19, 2);
 
 					this.#status = GoodWeUdp.ConStatus.Online;
 				} else {
