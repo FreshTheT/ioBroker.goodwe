@@ -37,7 +37,7 @@ class Goodwe extends utils.Adapter {
 	 */
 	async onReady() {
 		// Initialize your adapter here
-		// this.CreateObjectsDeviceInfo();
+		this.CreateObjectsDeviceInfo();
 		this.CreateObjectsRunningData();
 		// this.CreateObjectsExtComData();
 		// this.CreateObjectsBmsInfo();
@@ -611,8 +611,8 @@ class Goodwe extends utils.Adapter {
 		
 			switch (this.cycleCnt) {
 				case 1:
-					// this.UpdateDeviceInfo();
-					//this.log.info("Goodwe update");
+					this.UpdateDeviceInfo();
+					this.log.info("Goodwe update");
 					break;
 
 				case 3:

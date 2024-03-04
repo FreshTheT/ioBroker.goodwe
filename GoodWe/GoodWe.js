@@ -179,8 +179,8 @@ class GoodWeUdp {
 	#ipAddr = "";
 	#port = 0;
 	#client = dgram.createSocket("udp4");
-	// #idInfo = new GoodWeIdInfo();
-	// #deviceInfo = new GoodWeDeviceInfo();
+	#idInfo = new GoodWeIdInfo();
+	#deviceInfo = new GoodWeDeviceInfo();
 	#runningData = new GoodWeRunningData();
 	// #extComData = new GoodWeExternalComData();
 	// #bmsInfo = new GoodweBmSInfo();
@@ -279,18 +279,18 @@ class GoodWeUdp {
 		try {
 			this.#client.on("message", (rcvbuf) => {
 				if (this.#CheckRecRegisterData(rcvbuf, sendbuf[1], sendbuf[5])) {
-					// this.#deviceInfo.ModbusProtocolVersion = this.#GetUintFromByteArray(rcvbuf, 5, 2);
-					// this.#deviceInfo.RatedPower = this.#GetUintFromByteArray(rcvbuf, 7, 2);
-					// this.#deviceInfo.AcOutputType = this.#GetUintFromByteArray(rcvbuf, 9, 2);
-					// this.#deviceInfo.SerialNumber = this.#GetStringFromByteArray(rcvbuf, 11, 16);
-					// this.#deviceInfo.DeviceType = this.#GetStringFromByteArray(rcvbuf, 27, 10);
-					// this.#deviceInfo.DSP1_SoftwareVersion = this.#GetUintFromByteArray(rcvbuf, 37, 2);
-					// this.#deviceInfo.DSP2_SoftwareVersion = this.#GetUintFromByteArray(rcvbuf, 39, 2);
-					// this.#deviceInfo.DSP_SVN_Version = this.#GetUintFromByteArray(rcvbuf, 41, 2);
-					// this.#deviceInfo.ARM_SoftwareVersion = this.#GetUintFromByteArray(rcvbuf, 43, 2);
-					// this.#deviceInfo.ARM_SVN_Version = this.#GetUintFromByteArray(rcvbuf, 45, 2);
-					// this.#deviceInfo.DSP_IntFirmwareVersion = this.#GetStringFromByteArray(rcvbuf, 47, 12);
-					// this.#deviceInfo.ARM_IntFirmwareVersion = this.#GetStringFromByteArray(rcvbuf, 59, 12);
+					this.#deviceInfo.ModbusProtocolVersion = this.#GetUintFromByteArray(rcvbuf, 5, 2);
+					this.#deviceInfo.RatedPower = this.#GetUintFromByteArray(rcvbuf, 7, 2);
+					this.#deviceInfo.AcOutputType = this.#GetUintFromByteArray(rcvbuf, 9, 2);
+					this.#deviceInfo.SerialNumber = this.#GetStringFromByteArray(rcvbuf, 11, 16);
+					this.#deviceInfo.DeviceType = this.#GetStringFromByteArray(rcvbuf, 27, 10);
+					this.#deviceInfo.DSP1_SoftwareVersion = this.#GetUintFromByteArray(rcvbuf, 37, 2);
+					this.#deviceInfo.DSP2_SoftwareVersion = this.#GetUintFromByteArray(rcvbuf, 39, 2);
+					this.#deviceInfo.DSP_SVN_Version = this.#GetUintFromByteArray(rcvbuf, 41, 2);
+					this.#deviceInfo.ARM_SoftwareVersion = this.#GetUintFromByteArray(rcvbuf, 43, 2);
+					this.#deviceInfo.ARM_SVN_Version = this.#GetUintFromByteArray(rcvbuf, 45, 2);
+					this.#deviceInfo.DSP_IntFirmwareVersion = this.#GetStringFromByteArray(rcvbuf, 47, 12);
+					this.#deviceInfo.ARM_IntFirmwareVersion = this.#GetStringFromByteArray(rcvbuf, 59, 12);
 
 					this.#status = GoodWeUdp.ConStatus.Online;
 				} else {
@@ -300,7 +300,7 @@ class GoodWeUdp {
 
 			this.#client.send(sendbuf, 0, sendbuf.length, this.#port, this.#ipAddr, function (err) {
 				if (err) throw err;
-				//console.log("GoodWeDeviceInfo send");
+				console.log("GoodWeDeviceInfo send");
 			});
 		}
 		catch (error){
@@ -714,13 +714,13 @@ class GoodWeUdp {
 		return this.#status;
 	}
 
-	// get IdInfo() {
-	// 	return this.#idInfo;
-	// }
+	get IdInfo() {
+		return this.#idInfo;
+	}
 
-	// get DeviceInfo() {
-	// 	return this.#deviceInfo;
-	// }
+	get DeviceInfo() {
+		return this.#deviceInfo;
+	}
 
 	get RunningData() {
 		return this.#runningData;
