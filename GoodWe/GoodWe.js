@@ -714,25 +714,25 @@ class GoodWeUdp {
 		return this.#status;
 	}
 
-	get IdInfo() {
-		return this.#idInfo;
-	}
+	// get IdInfo() {
+	// 	return this.#idInfo;
+	// }
 
-	get DeviceInfo() {
-		return this.#deviceInfo;
-	}
+	// get DeviceInfo() {
+	// 	return this.#deviceInfo;
+	// }
 
 	get RunningData() {
 		return this.#runningData;
 	}
 
-	get ExtComData() {
-		return this.#extComData;
-	}
+	// get ExtComData() {
+	// 	return this.#extComData;
+	// }
 
-	get BmsInfo() {
-		return this.#bmsInfo;
-	}
+	// get BmsInfo() {
+	// 	return this.#bmsInfo;
+	// }
 }
 
 module.exports = {
